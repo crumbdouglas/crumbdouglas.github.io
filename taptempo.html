@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tempo & Effects Tap Timer</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="tempo, tap, reverb, effects, tapper, timer">
+<meta name="description" content="A tool to calculate effects and timing from a tempo">
+<meta name="author" content="Crumb Douglas">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+  max-width: 1000px;
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 50px; /* Specified height */
+  background: gold; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 1; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 25px;
+  max-width: 1000px;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 50px; /* Set a specific slider handle width */
+  height: 50px; /* Slider handle height */
+  background: dodgerblue; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: dodgerblue; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+}
+
+#demo {
+    font-size: 100px;
+    color: red;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border-radius: 50%;
+  border: none;
+  color: white;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  font-family: "Lucida Console", Monaco, monospace;
+}
+
+button:active {border: 2px solid white;}
+button:focus { outline: none; }
+
+.textcontainer {
+text-align: center;
+}
+
+span {color: red; width: 60px height: 1rem;}
+
+.hovershow:hover + .showme {display:inline-block;}
+
+.showme {display: none; position: relative; color: dodgerblue; top: 1.5em; left:-2ch; width: 0; height: 0;}
+
+
+
+sup, sub {font-size: 25%;}
+
+@media screen and (max-width: 500px) {
+  /* css goes here */
+}
+</style>
+</head>
+
+<body>
+
+<div class="slidecontainer">
+
+</div>
+<div class="textcontainer">
+  <input type="range" min="40" max="200" value="120" class="slider" id="myRange">
+  <p>BPM<br><span id="demo"></span></p>
+  <p>bar length reverb - <span id="longreverb"></span>s</p>
+  <p>msec: <span id="msec" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>2</sub></span>ms 
+  <span id="msec4" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>4</sub></span>ms 
+  <span id="msec8" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>8</sub></span>ms 
+  <span id="msec16" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>16</sub></span>ms 
+  <span id="msec32" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>32</sub></span>ms 
+  <span id="msec64" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>64</sub></span>ms 
+  <span id="msec128" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>128</sub></span>ms</p>
+
+  <p><br>freq: <span id="freq3" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>1</sub></span>hz <span id="freq2" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>4</sub></span>hz <span id="freq" class="hovershow"></span><span class="showme" ><sup>1</sup>&frasl;<sub>16</sub></span>hz</p>
+  
+  
+  
+<!--<p></p><br><br>tapper readout:<span id="tapperreadout"></span>
+
+
+<div id="readout"></div>
+taps:<div id="taps"></div>-->
+<br><button onclick="TapForBPM()" style="background-color:dodgerblue; height: 150px; width: 150px;">TAP</button><br><br>
+<button onclick="ResetCount()" style="background-color:red; height: 100px; width: 100px;">reset</button>
+
+</div>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value; // Display the default slider value
+
+var xmsec = slider.value * 12;
+msec.innerHTML = xmsec;
+msec4.innerHTML = xmsec / 2;
+msec8.innerHTML = xmsec / 4;
+msec16.innerHTML = xmsec / 8;
+msec32.innerHTML = xmsec / 16;
+msec64.innerHTML = xmsec / 32;
+msec128.innerHTML = xmsec / 64;
+
+
+var xfreq = Math.round(slider.value / 15 * 1000) / 1000;
+freq.innerHTML = xfreq;
+freq2.innerHTML = Math.round(slider.value / 60 * 1000) / 1000;
+freq3.innerHTML = Math.round(slider.value / 240 * 1000) / 1000;
+
+var xlongreverb = Math.round(slider.value / 41.66666666667 * 100) / 100;
+longreverb.innerHTML = xlongreverb;
+
+// Update the current slider value (each time you drag the slider handle)
+//slider.oninput = 
+function ValueUpdater() {
+  output.innerHTML = slider.value;
+  
+  msec.innerHTML = slider.value * 12;
+  msec4.innerHTML = slider.value * 6;
+  msec8.innerHTML = slider.value * 3;
+  msec16.innerHTML = slider.value * 1.5;
+  msec32.innerHTML = slider.value * 0.75;
+  msec64.innerHTML = Math.round(slider.value * 0.375 * 100) / 100;
+  msec128.innerHTML = Math.round(slider.value * 0.375 * 50) / 100;
+  
+  freq.innerHTML = Math.round(slider.value / 15 * 1000) / 1000;
+  freq2.innerHTML = Math.round(slider.value / 60 * 1000) / 1000;
+  freq3.innerHTML = Math.round(slider.value / 240 * 1000) / 1000;
+  
+  longreverb.innerHTML = Math.round(slider.value / 41.66666666667 * 100) / 100;
+}
+
+slider.oninput = ValueUpdater;
+
+</script>
+
+<script>
+<!-- Original:  Derek Chilcote-Batto (dac-b@usa.net) -->
+<!-- Web Site:  http://www.mixed.net -->
+<!-- Rewritten by: Rich Reel all8.com -->
+
+<!-- Begin
+var count = 0;
+var msecsFirst = 0;
+var msecsPrevious = 0;
+var wait = 3;
+
+function ResetCount()
+  {
+  count = 0;
+  //document.getElementById("readout").innerHTML = "waiting";
+  //document.getElementById("taps").innerHTML = "taps";
+  //document.T_RESET.blur(); //don't know what blur is!
+  }
+
+function TapForBPM(e)
+  {
+  //document.T_WAIT.blur();
+  timeSeconds = new Date;
+  msecs = timeSeconds.getTime();
+  if ((msecs - msecsPrevious) > 1000 * wait)
+    {
+    count = 0;
+    }
+
+  if (count == 0)
+    {
+    //document.getElementById("readout").innerHTML = "First Beat";
+    //document.getElementById("taps").innerHTML = "First Beat";
+    msecsFirst = msecs;
+    count = 1;
+    }
+  else
+    {
+    bpmAvg = 60000 * count / (msecs - msecsFirst);
+    //document.getElementById("readout").innerHTML = Math.round(bpmAvg * 100) / 100;
+    //document.getElementById("readout").innerHTML = Math.round(bpmAvg);
+    slider.value = Math.round(bpmAvg);
+    count++;
+    //document.getElementById('taps').innerHTML = count;
+    ValueUpdater();
+    }
+  msecsPrevious = msecs;
+  //return true;
+  }
+document.onkeypress = TapForBPM;
+
+//  End -->
+</script>
+
+</html>
