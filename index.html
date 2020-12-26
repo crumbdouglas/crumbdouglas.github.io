@@ -16,21 +16,21 @@ $(document).ready(function(){
 		jPlayer: "#jquery_jplayer_2",
 		cssSelectorAncestor: "#jp_container_2"//𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅 ⚲☉
 	}, [
-        {   title:"𝔏iving 𝔜ourself", mp3:"WL192/01livin.mp3"},//file:///Users/edwarddickinson/Desktop/wearlife/mp3s/02.mp3
+        {   title:"𝔏iving 𝔜ourself", mp3:"WL192/01livin.mp3"},
 		{   title:"ℑ can't even 𝔎eep 𝔘p with 𝔐yself", mp3:"WL192/02keepup.mp3"},
 		{   title:"ℑ kno how the 𝔈arth 𝔉eels", mp3:"WL192/03earthfeel.mp3"},
         {   title:"𝔐agic 𝔏eaf", mp3:"WL192/04magicleaf.mp3",},
         {   title:"𝔓layed with the 𝔅ugs", mp3:"WL192/05bugs.mp3",},
         {   title:"𝕮rye 4 𝕳elp", mp3:"WL192/06crye4help.mp3",},
         {   title:"my god is a 𝔚ild 𝔄nimal", mp3:"WL192/07wildgod.mp3",},
-        {   title:"my heart 𝔈xplodes like a 𝔇andelion", mp3:"WL192/08luvlyf.mp3"},//my heart 𝔈xplodes like a 𝔇andelion / ⚲ 𝔈ndow the 𝔚ildflower
+        {   title:"my heart 𝔈xplodes like a 𝔇andelion", mp3:"WL192/08luvlyf.mp3"},
         {   title:"the 𝔓rimal 𝔓rinciple", mp3:"WL192/09pripri.mp3",},
         {   title:"𝕳eart of 𝔇irt", mp3:"WL192/10heartofdirt.mp3",},
         {   title:"ℌopeful ℌeaves", mp3:"WL192/11heaves.mp3",},
         {   title:"𝔉lower in a 𝔗yre 𝔗rack", mp3:"WL192/12findsum1.mp3",},
         {   title:"𝔑ew 𝔗echniques", mp3:"WL192/13newtech.mp3",},
         {   title:"ℑ'm only going 𝕹aked from 𝕹ow 𝔒n", mp3:"WL192/14naked.mp3",},
-        {   title:"& then 𝕴 became 𝔐e", mp3:"WL192/15became.mp3",} //& then ⚲ became ☉
+        {   title:"& then 𝕴 became 𝔐e", mp3:"WL192/15became.mp3",}
 	], {
 		swfPath: "../jplayer",
 		supplied: "oga, mp3",
@@ -44,14 +44,13 @@ $(document).ready(function(){
 //]]>
 </script>
 <script>
-var tracklistlength = 15 // document.getElementsByClassName("lyricpanel");
+var tracklistlength = 15 
 var lyricbuttons = document.getElementsByClassName("jp-lyrics-button");
 var lyricpanels = document.getElementsByClassName("lyricpanel");
 var ii;
 var tester = 0;
 var lyrilength = lyricpanels.length;
 var oldactive;
-//let lyrics = ['1','2','3'];
 var lyricfirstclick = true;
 let lyricsheet = [{trackNo: 1, trackTitle: "livingyourself", fullLyrics: "what’s the opposite of killing yourself?<br>&nbsp; &nbsp; cos’ feeling like you wanna do that<br>&nbsp; &nbsp; is worth enduring the horrible fact<br>&nbsp; &nbsp; that hangs around you and everyone else<br><br>are you still living yourself<br>&nbsp; &nbsp; &nbsp; &nbsp; just by not killing yourself,<br>&nbsp; &nbsp; or are you killing yourself<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; by not living yourself?<br><br>&nbsp; &nbsp; what’s the opposite of killing yourself?<br>is it living like your soul ain’t a pest?<br>is it knowing that your body knows best?<br>is it wearing your heart like a dress?<br><br>what’s the opposite of killing yourself?<br>&nbsp; &nbsp; cos feeling like you wanna do that<br>&nbsp; &nbsp; is worth enduring the balancing act<br>&nbsp; &nbsp; between you, and your hurt, and your health<br><br>are you still living yourself<br>&nbsp; &nbsp; &nbsp; &nbsp; just by not killing yourself?<br>&nbsp; &nbsp; or are you killing yourself<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; by not living yourself?<br><br>is it taking off all of your clothes?<br>is it seeing the sun as it’s born-<br>&nbsp; &nbsp; when it’s new and it’s pink and it’s yours?<br>&nbsp; &nbsp; i’m not sure but i’m trying it all..."},
 {trackNo: 2, trackTitle: "keepupwithmyself", fullLyrics: "short lived planetary sermon <br>preached into the corner of my eye <br>hold me so my fate be steady <br>if only til the moon come back around <h6 class='choruslyric'>i can't even keep up with myself</h6> the lunar cycle keeps me spinning <h6 class='choruslyric'>i can't even keep up with myself </h6> and i'm not sure i should even try <br><br> <h6 class='choruslyric'>i can't even keep up with myself </h6> <h6 class='choruslyric'>i can’t even try</h6> <h6 class='choruslyric'>i can't even keep up with myself</h6> <h6 class='choruslyric'>i can’t even try</h6> <h6 class='choruslyric'>i can't even keep up with myself</h6> <h6 class='choruslyric'>i can’t even try</h6><br>now my vegetable gospel is lost <br>& i’ve blooded my teeth like a wolf <br>i’ve abandoned my dietary health <br>now i feast on the once sacrosanct <br><br> <h6>wrap the carnivore tongue round my heart</h6> <h6>and devour it all bit by bit</h6> <h6>moral fibre never lasted long</h6> <h6>digested and regurgitated as the lust in my eyes</h6> <br> <font class='choruslyric'>i can't even keep up with myself </font> <h6 class='choruslyric'>i can’t even try</h6> <font class='choruslyric'>i can't even keep up with myself </font> <h6 class='choruslyric'>i can’t even try</h6> <font class='choruslyric'>i can't even keep up with myself </font> <h6 class='choruslyric'>i can’t even try</h6> <br> <h6>the gathered crowd throw confetti</h6> <h6>when i’m drunk– parading through town</h6> <h6>until i goad them to anger</h6> <h6>enuff to beat me up and mob me down</h6><br> <h6>and i’m not sure i wanna get back up</h6> <h6>unless i can find a way to face myself</h6> <br> <font class='choruslyric'>i can't even keep up with myself &nbsp; &nbsp;i can’t even try i can't even keep up with myself &nbsp; &nbsp; i can’t even try i can't even keep up with myself &nbsp; &nbsp; &nbsp;i can’t even try&nbsp; &nbsp;can’t even keep up with myself can’t even keep up with myself &nbsp;&nbsp;can’t even keep up with myself &nbsp; &nbsp;can’t even keep up with myself</font>"},
@@ -68,75 +67,32 @@ let lyricsheet = [{trackNo: 1, trackTitle: "livingyourself", fullLyrics: "what�
 {trackNo: 13, trackTitle: "newtechniques", fullLyrics: "i been workin on new techniques <h6>with everybody that i meet</h6> try to tell ‘em that i love em with just a smile <br><br>i been pissin’ on fresh concrete<h6>writin golden graffiti<br> spelling out a message from up above </h6> <br>don my ancestral mask and do a kamikazee dance <h6>sing the last rites for my own rebirth </h6> <br>when i’m drunk and rain hits the earth<h6> my nostrils flare and surge<br>all at once i smell the whole universe</h6> <br> <span class='choruslyric'>((((((((i been workin' on new techniques))))))))</span> <br> <br>lost in a new country<br>and i see myself on tv<br> <h6>split into the shards of a broken screen</h6> <br>we’re stars in the sunset<br>film fades as it project <h6>a last picture show on the ancient rock</h6> <br>as night falls on the city<br>headlights cut thru the trees <h6>let the moon decide where we want to be</h6> <br>radio clears through static<br>gospel singing ecstatic <h6>praise for the rapture in our life</h6> <br> <span class='choruslyric'>((((((((i been workin' on new techniques))))))))</span><br> <br>the world spites me with a lust so heavenly <h6>i’m feeding the fires tonight</h6> <br>the world roasts me as i spin like rotisserie <h6>chicken on a meteorite</h6><br>the world smokes me like a hand-rolled cigarette <h6>brain mist evaporates</h6> <br>the world drains me like a glass of grain liquor <h6>white noise drown my sight</h6>"},
 {trackNo: 14, trackTitle: "nakednowon", fullLyrics: "<span class='choruslyric'>i'm only going naked from now on <h6>for the rest of my days</h6> i'm only going to dress up my tongue <h6>in amorous sayings</h6> </span> <br> <h6>i'm gonna wear my fear like badge of pride</h6> <h6>i'm gonna take my sin tattoo it on my hide</h6> <h6>i'm gonna bare my shame like i never tried</h6> <h6>for all these years to keep it covered up inside</h6> <span class='choruslyric'><br><br> no, i ain't what i've got on, my wear is my ways i'll give as good as i get <h6>i'll pray and i'll praise</h6> </span> <br>gonna weave a dress from the words in my throat <br>i’ll cut it with love and with hope <br>and i swear that when i’ve nothing on <br>you will see honesty in the bareness of my bum"},
 {trackNo: 15, trackTitle: "andthenibecameme", fullLyrics: "as i was standing upon the frontier of <h6>a fantasy of my self</h6> i saw a baby boy <br>&nbsp; &nbsp; &nbsp; &nbsp; with a face like mine <br>in a multitude of young cowboys– <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; a constellation of flesh <br>that holds a guiding arm <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; and lights where to go... <br> <br><h6 class='choruslyric'>...and then i became me</h6> <br>	stripping off the coat, <br>	peeling off the skin of my own former self <br> <br>i step toward the horizon <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; long clear of my flock <br>in a cloud of rising  smoke <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; i’m transforming <br>i blew apart the invention <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; peeled the bodywork off <br>to reveal a human form <br>&nbsp; &nbsp; &nbsp; &nbsp; and that’s when i’d grow... <br> <br><h6 class='choruslyric'>...and then i became me</h6> <br>washing off the grime, <br>picking off the dross of my own former self <br> <br>as i carried off my old body <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; buried it in the earth <br>in a grave of blackened soil <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with no headstone <br>but a simple handmade cross <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; made from my own two bones <br>i took my heart in my hands <br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; as a compass i’ll use! <br> <br><h6 class='choruslyric'>(& then i became me)</h6> <br>bury there in the earth, <br>lay it down there to rest– &nbsp; &nbsp; my own fomer self"},
-//{trackNo: 3, trackTitle: "elbowscrackin", fullLyrics: "i can feel my elbows crackin’ <br>as i raise my two hands up in <br>to the thrall of the sky that passes to me <br>and i feel myself grow...<br><br><h6>i feel it shakin’ my knees</h6> <h6>i feel it flowin’ thru me</h6> <h6>i feel it deep as i feel</h6> <h6>...yet i know it goes deeper still</h6><br>i can feel my lip skin crackin’ <br>where my mouth has been pried open <br>in total awe of the force that overtakes me, <br>ensures that i grow... <br><br><h6>i feel it swell as i breathe</h6> <h6>i feel it make me believe</h6> <h6>i feel it deep as i feel</h6> <h6>...yet i kno it goes deeper still</h6>"},
 ];
                   
                               
 for (ii = 0; ii < 15; ii++) {
  tester += "r";
  lyricbuttons[ii];
-//  lyricbuttons[ii].addEventListener("click", function() {
-//    /* Toggle between adding and removing the "active" class,
-//    to highlight the button that controls the panel */
-//    //this.classList.toggle("lyric-active");
-//
-//    /* Toggle between hiding and showing the active panel */
-//    var panel = lyricpanels[ii]//this.nextElementSibling;
-//    if (panel.style.display === "block") {
-//      panel.style.display = "none";
-//    } else {
-//      panel.style.display = "block";
-//    }
-//  });
 }
-
-//function lyricButtonSetUp() {lyricpanels = document.getElementsByClassName("lyricpanel");
-//for (j = 0; j < lyricbuttons.length; j++) {lyricbuttons[i].classList.toggle("bgclipanim");
-//}
-////lyricpanels[0].innerHTML = "tony";
-//}
-//
-//window.onload = lyricButtonSetUp();
 
 function lyricPanelSetUp() {var lps = document.getElementsByClassName("lyricpanel");
 var you = document.getElementById("testio");
 you.innerHTML = "roo";
-//lyricpanels[0].innerHTML = "first song lyrics";
-//oldactive = document.getElementsByClassName("lyric-active");
 }
 
 window.onload = lyricPanelSetUp();
-
-//let lyricsheet = [{"trackNo": 1, "trackTitle": "living yourself", "fullLyrics": "lyrics1"},
-//{trackNo: 2, trackTitle: "earth feels", fullLyrics: "lyrics2"}];
-
 
 function lyricPanelOpen(xx) {
     oldactive = document.getElementsByClassName("lyric-active");
     if (xx.classList.contains("lyric-active") == true) {xx.classList.toggle("lyric-active");} else {
 
     for (i = 0; i < oldactive.length; i++) {oldactive[i].classList.toggle("lyric-active");}
-    //oldactive.toggle("lyric-active");
- //   xx.lastChild.innerHTML = "x";
     xx.classList.toggle("lyric-active");
- //  xx.innerHTML = "<span class='bgclipanim lyricspan'>lyrics</span>∵";//change html content 
-//    xx.nextElementSibling.innerHTML = "lemon" + xx.classList.contains("lyric-active");
- 
-//  var panel = xx.nextElementSibling;
-  //  if (panel.style.display === "block") {
-  //    panel.style.display = "none";
-  //  } else {
-   //   panel.style.display = "block";
- //       panel.innerHTML = this + " " + ii + " " + tester + lyrilength + oldactive;
-  //  }
   }
 
 if (lyricfirstclick == true) {
 
   var lyricinnerpanels = document.getElementsByClassName("lyricpanelinner");
-//  lyricinnerpanels[0].innerHTML = "what's the opposite of killing yourself?";
-//  lyricinnerpanels[1].innerHTML = "what's the opposite of killing yourself?";
-//  lyricinnerpanels[2].innerHTML = lyricsheet[0].trackNo;
   for (g = 0; g < lyricsheet.length; g++) {var h = lyricsheet[g].trackNo - 1; lyricinnerpanels[h].innerHTML = lyricsheet[g].fullLyrics;};
   
   lyricfirstclick = false;
@@ -176,7 +132,7 @@ position:absolute; right: 0; cursor: pointer; top: 0;
   -webkit-background-clip: text;
   background-clip: text;        
   background-image: linear-gradient(to right, lightpink , orange, gold, plum, deepskyblue, hotpink, lightpink);
-  background-size: 200% 200%;
+  background-size: 300% 200%;
   animation-name: bgflaganim;
   animation-duration: 15s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear;}
 /*
@@ -191,14 +147,8 @@ position:absolute; right: 0; cursor: pointer; top: 0;
 
 .jp-playlist > ul > li > div {position: relative;}
 
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction-Bold.otf); font-weight: 100;}*/
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction10-Bold.otf); font-weight: 200;}    */
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction20-Bold.otf);  font-weight: 300;}*/
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction35-Bold.otf);  font-weight: 400;}*/
-    @font-face {  font-family: redaction-bold;  src: url(Redaction50-Bold.otf);  font-weight: 500;}
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction70-Bold.otf);  font-weight: 600;}*/
-/*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction100-Bold.otf);  font-weight: 700;}*/
-  
+@font-face {  font-family: redaction-bold;  src: url(Redaction50-Bold.otf);  font-weight: 500;}
+
 /* @group current time and duration */
 .jp-audio .jp-time-holder { display: inline; pointer-events: none; }
   .jp-time-holder {position: relative; top: -1em;}
@@ -210,9 +160,6 @@ position:absolute; right: 0; cursor: pointer; top: 0;
   font-weight: bold;
   text-align: center;
   cursor: default; }
-  /*
-  .wearlifeplaylist {background: white; position: absolute; top: 0.5em; left: 0.25ch; padding: 1em 3ch;}
-  .playlistborder {width: 54.5ch; height: 26em; margin: auto; position: relative;}*/
 
 #jp_container_2 {width: 52ch;}
 
@@ -298,9 +245,7 @@ a:hover {opacity: 0.5;}
 	font-size: 200%;
 	}
 
-@media only screen and (max-width: 700px) {
 
-}
        @keyframes bgflaganim {
         0% {background-position: 0%}
         100% {background-position: 200%}
@@ -310,14 +255,10 @@ a:hover {opacity: 0.5;}
           color:transparent;            
   -webkit-background-clip: text;
   background-clip: text; 
-/*background-image: linear-gradient(to right, red , orange, gold, springGreen, dodgerblue, deeppink, red);
-  background-size: 200% 200%;
-  animation-name: bgflaganim;
-animation-duration: 15s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear;*/
   }
         .bgfadanim, .bgclipanim { 
   background-image: linear-gradient(to right, lightpink , orange, gold, plum, deepskyblue, hotpink, lightpink);
-  background-size: 200% 200%;
+  background-size: 300% 200%;
   animation-name: bgflaganim;
   animation-duration: 15s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear;}
         .smally {background-size: 1000% 200%;}
@@ -386,6 +327,17 @@ background-clip: }
         #mariaman {max-height: 500px; max-width: 500px; height: 90vw; width: 90vw;}
         .mainalbtitle {font-size: ; }/*  6vw*/
         #wearlifewindows {width:90vw;margin-left:5vw;}
+        
+        
+}
+@media only screen and (max-width: 520px) {
+        .lyricspan {display: none;}
+        #jp_container_2 > div > div.jp-playlist.wearlifeplaylist > ul > li > div > div > span {overflow: hidden; height: 1.5px;  letter-spacing: 1; display: block; color:transparent; -webkit-background-clip: content-box; background-clip: content-box;}
+        #jp_container_2 > div > div.jp-playlist.wearlifeplaylist > ul > li > div > div > span:nth-child(1) {margin-top: 1.2em;}
+        
+        #jp_container_2 > span, #jp_container_2 > div > span {display: block; height: 1.5px; overflow: hidden; -webkit-background-clip: content-box; background-clip: content-box;}
+        #jp_container_2 > div > span {margin-top: 1em;}
+        
 }
 
 </style>
@@ -412,9 +364,6 @@ background-clip: }
 			<div class="jp-controls bgfadanim" style="overflow:hidden;"><div class="whiteoutsides"></div>
 				<button class="jp-play butt" role="button" tabindex="0"><div class="buttplay"></div><div class="buttpause"></div><div class="buttplayhover"></div></button>
         
-                <!--<button class="jp-previous" role="button" tabindex="0"><span class="bgclipanim">« &nbsp; </span></button>
-                <button class="jp-next" role="button" tabindex="0"><span class="bgclipanim"> &nbsp; »</span></button>-->
-                
                 <button class="jp-next buttnext"><div class="nex1"></div><div class="nex1 nex2"></div><div class="whiteoutnex"></div><div class="buttskiphover"></div></button>
                 <button class="jp-previous buttprev"><div class="prv1"></div><div class="prv1 prv2"></div><div class="whiteoutprv"></div><div class="buttskiphover"></div></button>
 			</div>
@@ -423,12 +372,12 @@ background-clip: }
 				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>&nbsp;/&nbsp;<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
 			</div>
 		</div><span class="bgclipanim">------------------------------------------------</span><br><br>
-		<!--<div class="playlistborder bgfadanim">-->
+		
 		<div class="jp-playlist wearlifeplaylist">
 			<ul>
 				<li></li>
 			</ul>
-		<!--</div>-->
+		
         </div>
 		<div class="jp-no-solution">
 			<span>Update Required</span>
@@ -437,11 +386,10 @@ background-clip: }
 	</div><br><span class="bgclipanim">------------------------------------------------</span>
 </div>
 
-<!--<img src="crumbjewels.png" style="width:434px;height:399px;">-->
 <br><br><a class="downloadlink" href="https://www.mediafire.com/file/qmnks7te1cakt51/Wear_Life_like_a_Beautiful_Dress_%2528320kpbs%2529.zip/file">download the mp3s @ 320kbps</a>
 <br><br><br><br>
 <img src="wearlifewindows3.png" id="wearlifewindows"><br>
-<!--<img src="SANDBOY.png" style="height:auto;width:500px;">-->
+
 <br><br><br>thanks lovers<!--to maria, jenny, george, lorraine, and mum-->
 <!--<br>
 -------
@@ -454,7 +402,7 @@ background-clip: }
 
 <br><br><br>
 <font size="3ch" class="transform: rotate(20deg); position: relative; display: inline-block;">†</font>
-<!--<div><div style="transform: rotate(20deg); position: relative; height: 1em; width: 1ch;">†</div></div>-->
+
 </center>
 
 
