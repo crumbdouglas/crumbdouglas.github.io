@@ -3,6 +3,7 @@
 <head>
         <meta charset="utf-8" />
         <meta name="keywords" content="crumb,douglas,crumbs,heaven">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script type="text/javascript" src="jquery.min.js"></script>
 <script type="text/javascript" src="jquery.jplayer.js"></script>
 <script type="text/javascript" src="jplayer.playlist2020ii.js"></script>
@@ -141,10 +142,11 @@ if (lyricfirstclick == true) {
   lyricfirstclick = false;
   }
 }
-
-
-
 </script>
+
+
+
+
 
 <style>
 /*html {font-size: 16pt;}*/
@@ -189,8 +191,6 @@ position:absolute; right: 0; cursor: pointer; top: 0;
 
 .jp-playlist > ul > li > div {position: relative;}
 
-@font-face{ font-family: applesymbols; src: url(../applesymbolsub.woff);}
-
 /*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction-Bold.otf); font-weight: 100;}*/
 /*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction10-Bold.otf); font-weight: 200;}    */
 /*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction20-Bold.otf);  font-weight: 300;}*/
@@ -200,18 +200,10 @@ position:absolute; right: 0; cursor: pointer; top: 0;
 /*    @font-face {  font-family: redaction-bold;  src: url(../fonts/redaction/Redaction100-Bold.otf);  font-weight: 700;}*/
   
 /* @group current time and duration */
-.jp-audio .jp-time-holder {
- display: inline; pointer-events: none; 
-}
-  
-.jp-time-holder {position: relative; top: -1em;}
-
-.jp-current-time { display: inline;
-  	}
-
-.jp-duration { 
-  display: inline;
- }
+.jp-audio .jp-time-holder { display: inline; pointer-events: none; }
+  .jp-time-holder {position: relative; top: -1em;}
+    .jp-current-time { display: inline;}
+    .jp-duration { display: inline;}
 
 /* @group playlist */
 .jp-details {
@@ -285,20 +277,14 @@ div.jp-type-playlist div.jp-playlist span.jp-has-time {
   border: 0; }
 
 body {
-	font-family: courier; font-size: 14px; background-color: oldlace;}
+	font-family: courier; font-size: 14px; background-color: oldlace;}  /*14px or 11pt*/
 	
 .bodybgpads {position: fixed; top: -10vh; height: 120vh; width: calc(60vw - 26ch); min-width: 0; z-index: -200;} 
 .bgpadl {left: -10vw; background-image: linear-gradient(to left, oldlace, PapayaWhip); } /*antiquewhite, blanchedalmond, bisque, PapayaWhip*/
 .bgpadr {right: -10vw; background-image: linear-gradient(to right, oldlace, PapayaWhip); }
 
-a {
-    color: red;
-    text-decoration: none;
-}
-
-a:hover {
-    color: blue;
-}
+a {color: black; text-decoration: none;}
+a:hover {opacity: 0.5;}
 
 .entry {
 	background: ;
@@ -315,8 +301,7 @@ a:hover {
 @media only screen and (max-width: 700px) {
 
 }
-  
-         @keyframes bgflaganim {
+       @keyframes bgflaganim {
         0% {background-position: 0%}
         100% {background-position: 200%}
     }
@@ -325,12 +310,10 @@ a:hover {
           color:transparent;            
   -webkit-background-clip: text;
   background-clip: text; 
-/*
-  background-image: linear-gradient(to right, red , orange, gold, springGreen, dodgerblue, deeppink, red);
+/*background-image: linear-gradient(to right, red , orange, gold, springGreen, dodgerblue, deeppink, red);
   background-size: 200% 200%;
   animation-name: bgflaganim;
-animation-duration: 15s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear;
-*/
+animation-duration: 15s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear;*/
   }
         .bgfadanim, .bgclipanim { 
   background-image: linear-gradient(to right, lightpink , orange, gold, plum, deepskyblue, hotpink, lightpink);
@@ -348,26 +331,20 @@ animation-duration: 15s; animation-direction: normal; animation-iteration-count:
   border: 0px solid black;
 	margin: 0px;
 }
-/*.jp-controls button:hover {
-  border-color: #F67012;
-	}*/
+/*.jp-controls button:hover {border-color: #F67012;}*/
  
  .jp-next, .jp-previous {position:absolute; top: 0.75rem;}
  .jp-next {right: 5rem; }
  .jp-previous {left: 5rem;}
 
-.jp-play{display: block;}
+.jp-play{display: block;} .jp-play:hover, .jp-play:active { }
 
-  .jp-play:hover, .jp-play:active { 
-   } 
   .buttplayhover:hover {opacity: 0.5;} .buttskiphover:hover {opacity: 0.5;}
   
   .buttpause {visibility: hidden;}
-.jp-state-playing .jp-play .buttplay{
-  visibility: hidden;}
+.jp-state-playing .jp-play .buttplay{visibility: hidden;}
   
-.jp-state-playing .jp-play .buttpause{
-  visibility: visible;}
+.jp-state-playing .jp-play .buttpause{visibility: visible;}
 
 .jp-controls {position: relative; display: block; height: 3rem; width: 20rem; margin-bottom: 2rem;}
         
@@ -401,8 +378,15 @@ background-clip: }
 .trmenu-content a {color: black;}
 .trmenu-content a:hover {opacity: 0.5;}
 
-.downloadlink:hover {opacity: 0.5;}
-.downloadlink {color: black;}
+#mariaman {height: 500px; width: 500px;}
+.mainalbtitle {font-family: redaction-bold; font-weight: 500; font-size: 40px; }
+#wearlifewindows {height:auto;width:450px;margin-left:20px;}
+
+@media (orientation:portrait) {#jp_container_2 {width: 90vw;}
+        #mariaman {max-height: 500px; max-width: 500px; height: 90vw; width: 90vw;}
+        .mainalbtitle {font-size: ; }/*  6vw*/
+        #wearlifewindows {width:90vw;margin-left:5vw;}
+}
 
 </style>
 
@@ -417,9 +401,9 @@ background-clip: }
 
 
 <br><br><br>
-<span style="font-family: redaction-bold; font-weight: 500; font-size: 40px; " class="mainalbtitle bgclipanim">Wear Life Like a Beautiful Dress</span><br>
+<span class="mainalbtitle bgclipanim">Wear Life Like a Beautiful Dress</span><br>
 
-<img src="man.png" style="height:500px;width:500px;" title="thx maria!">
+<img src="man.png" title="thx maria!" id="mariaman">
 
 <div id="jquery_jplayer_2" class="jp-jplayer"></div>
 <div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
@@ -456,7 +440,7 @@ background-clip: }
 <!--<img src="crumbjewels.png" style="width:434px;height:399px;">-->
 <br><br><a class="downloadlink" href="https://www.mediafire.com/file/qmnks7te1cakt51/Wear_Life_like_a_Beautiful_Dress_%2528320kpbs%2529.zip/file">download the mp3s @ 320kbps</a>
 <br><br><br><br>
-<img src="wearlifewindows3.png" style="height:auto;width:450px;margin-left:20px;"><br>
+<img src="wearlifewindows3.png" id="wearlifewindows"><br>
 <!--<img src="SANDBOY.png" style="height:auto;width:500px;">-->
 <br><br><br>thanks lovers<!--to maria, jenny, george, lorraine, and mum-->
 <!--<br>
