@@ -280,7 +280,8 @@ a:hover {opacity: 0.5;}
   
 .jp-state-playing .jp-play .buttpause{visibility: visible;}
 
-.jp-controls {position: relative; display: block; height: 3rem; width: 20rem; margin-bottom: 2rem;}
+.jp-controls_hold {position: relative; display: block; height: 3rem; width: 10rem; margin-bottom: 2rem;}
+.jp-controls {position: relative; display: block; height: 3rem; width: 20rem; margin-bottom: 2rem; left: -5rem;}
         
         .nextprevanim {}
 .butt {position:absolute; width: 3rem; height: 3rem; left: 8.5rem; background-color: transparent; }
@@ -356,12 +357,13 @@ background-clip: }
 <div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
 	<div class="jp-type-playlist">
 		<div class="jp-gui jp-interface">
+            <div class="jp-controls_hold">
 			<div class="jp-controls bgfadanim" style="overflow:hidden;"><div class="whiteoutsides"></div>
 				<button class="jp-play butt" role="button" tabindex="0"><div class="buttplay"></div><div class="buttpause"></div><div class="buttplayhover"></div></button>
         
                 <button class="jp-next buttnext"><div class="nex1"></div><div class="nex1 nex2"></div><div class="whiteoutnex"></div><div class="buttskiphover"></div></button>
                 <button class="jp-previous buttprev"><div class="prv1"></div><div class="prv1 prv2"></div><div class="whiteoutprv"></div><div class="buttskiphover"></div></button>
-			</div>
+			</div></div>
 
 			<div class="jp-time-holder" >
 				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>&nbsp;/&nbsp;<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
