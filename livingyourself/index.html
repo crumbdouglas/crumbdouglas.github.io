@@ -7,7 +7,7 @@
 <meta name="description" content="">
 <meta name="author" content="Crumb Douglas">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="">
+<link rel="icon" href="" id="tabicon">
 <style>
 body {margin: 0; background-color: black;}
 
@@ -110,7 +110,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
 </head>
 <body onresize="resizePage()">
-<audio id="main-audio" preload="auto"><source src="/Users/edwarddickinson/Documents/GitHub/ed-dickinson.github.io/assets/LY192/01livin.mp3"></audio>
+<audio id="main-audio" preload="auto"><source src="assets/LY192/01livin.mp3"></audio>
 <div id="top-player-bar">
     <div id="top-player-inner">
         <div id="buttons-container">
@@ -238,6 +238,8 @@ function lyricDrawerOpenClose() {
 <script src="externals/lyrics.js"></script>
 <script src="externals/player.js"></script>
 <script>
+
+
 
 bigBackBackground.addEventListener('load', fillInWhites(), false);
 

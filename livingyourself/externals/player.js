@@ -25,8 +25,10 @@ function playPause() {
 function updatePlayPauseButton() {
     if (loadedaudio.paused) {
         document.getElementById('play-button').style.backgroundImage = 'url(assets/transpixelbutton-play.png)';
+        document.getElementById('tabicon').setAttribute('href', 'assets/pause-button.png');
     } else {
         document.getElementById('play-button').style.backgroundImage = 'url(assets/transpixelbutton-pause.png)';
+        document.getElementById('tabicon').setAttribute('href', 'assets/play-button.png');
     }
 }
 
