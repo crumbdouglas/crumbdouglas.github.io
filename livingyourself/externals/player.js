@@ -34,19 +34,24 @@ function updatePlayPauseButton() {
 
 function nextTrack() {
     if (current === tracks.length - 1) {
+        trackcolours[current].classList.remove('selected-track');
         current = 0;
         loadedaudio.pause();
         playing = false;
-        playbutton.style.backgroundPositionX = "0px";
+        updatePlayPauseButton();
     } else {
+        trackcolours[current].classList.remove('selected-track');
         current++;
+        trackcolours[current].classList.add('selected-track');
     }
     loadedaudio.src = tracks[current].url;
     
     if (playing === true) {
         loadedaudio.play();
-        trackcolours[current].classList.add('selected-track');
+        
     } 
+    
+    
     
     matchLyricBoxTitles();
 }
@@ -57,7 +62,9 @@ function prevTrack() {
     if (current === 0) {
         current = current;
     } else {
+        trackcolours[current].classList.remove('selected-track');
         current--;
+        trackcolours[current].classList.add('selected-track');
     }
     loadedaudio.src = tracks[current].url;
     if (playing === true) {loadedaudio.play();} 
@@ -257,19 +264,20 @@ for (var i = 0; i < tracklinks.length; i++) {
 //            playFunc;//timeUpdate;
             
             //add colour highlight for next track
-//            for (var i = 0; i < tracktitles.length; i++) {
-//                albumtracklist[i].firstChild.classList.remove('bgclipanim');
-//            }
-//            albumtracklist[index].firstChild.classList.add('bgclipanim');
+            for (var ii = 0; ii < trackcolours.length; ii++) {
+                trackcolours[ii].classList.remove('selected-track');
+            }
             trackcolours[index].classList.add('selected-track');
             
-            
+            playing = true;
             current = index;
             updatePlayPauseButton();
             matchLyricBoxTitles();
         }
     })(i);
 }
+
+//function remove
 
 //
 //function trackSelect(track) {
