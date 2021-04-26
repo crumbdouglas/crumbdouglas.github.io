@@ -28,7 +28,9 @@ body {margin: 0; background-color: black;}
 
 
 
-#lyrics-button {background-color: white; color: black; position: absolute; top: 0; right: 0; height: 100%;  padding: 0 10px; line-height:30px; font-family: monospace; text-decoration: underline wavy; cursor: pointer; font-family: 'trebuchet ms'; text-transform: uppercase; font-size: 10px; letter-spacing: 6px;}
+#lyrics-button {background-color: white; color: black; position: absolute; top: 0; right: 0; height: 100%;  padding: 0 10px; line-height:30px; font-family: monospace; text-decoration: underline wavy; cursor: pointer; font-family: 'trebuchet ms'; text-transform: uppercase; font-size: 10px; letter-spacing: 6px; width: 60px; 
+    background-image: url('assets/info-blk.png'); background-color: white; background-repeat: no-repeat; background-size: contain; background-position: center;}
+
 
 #lyrics-drawer {border-radius: 7px; position: absolute; width: calc(100% - 8px); border: 2px solid white;  z-index: 30; top: 2px; background-color: black; padding-top: 30px; transition: 0.4s; color: white; overflow: hidden; font-family: 'trebuchet ms'; font-size: 80%;}
 #lyrics-drawer::-webkit-scrollbar, #lyrics-box::-webkit-scrollbar {display: none;} #lyrics-drawer, #lyrics-box {-ms-overflow-style: none; scrollbar-width: none;}
@@ -57,9 +59,9 @@ border-bottom-right-radius: 10px; }
     0%,100% {border-color: tomato;} 30% {border-color: gold;} 60% {border-color: dodgerblue;} 75% {border-color: hotpink;}  
 }
 
-/* SCRUBBING BAR */
+/* SCRUBBING BAR 247*/
 
-#scrubbingcontainer{width: calc(100% - 247px); height: 28px;border: white 1px solid; position: absolute; top: 0; left: 170px; cursor: pointer;}
+#scrubbingcontainer{width: calc(100% - 251px); height: 28px;border: white 1px solid; position: absolute; top: 0; left: 170px; cursor: pointer;}
 #scrubbingbar{width: 100%; height: 100%;  position: absolute; }
 #scrubbingbarplayed {background-color: white; opacity: 1;}
 #scrubbingbarbuffered, #scrubbingbarplayed {position: absolute; height: 100%; top: 0px; left: 0px;}
@@ -136,8 +138,14 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
     
 }
 
+#lyrics-box .track-title {background-color: white; padding-top: 0; border-bottom: 0;margin-bottom: -10px; margin-top: 10px; font-size: 0; border-right: 20px solid black; border-left: 10px solid black;}
+
+#lyrics-box .track-title.currently-playing {animation: rainbowAnimBG 10s linear infinite; } /* these are dupes of above*/
+
 @keyframes rainbowAnimBG {
-    0%,100% {background-color: tomato;} 30% {background-color: gold;} 60% {background-color: dodgerblue;} 75% {background-color: hotpink;} 
+    0%,100% {background-color: tomato;} 30% {background-color: gold;} 60% {background-color: dodgerblue;} 75% {background-color: hotpink;}
+    
+
 
 /* END MOBILE */
 
@@ -167,7 +175,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
         </div>
     </div>
         
-        <div id="lyrics-button" onclick="lyricDrawerOpenClose()">info:</div>
+        <div id="lyrics-button" onclick="lyricDrawerOpenClose()"><!--info:--></div>
     </div>
     <div id="lyrics-drawer" class="closed">
         <div id="lyrics-box">
@@ -305,11 +313,11 @@ function fillLyricDrawer() {
     for (var i = 0; i < tracks.length; i++) {
         
         var trackTitle = document.createElement('div');
-        if (window.innerWidth <= 500) {
+//        if (window.innerWidth <= 500) {
             trackTitle.innerHTML = "<img src='assets/handdrawn-titles/" + (i + 1) + ".png'>";
-        } else {
-            trackTitle.textContent = tracks[i].title;
-        }
+//        } else {
+//            trackTitle.textContent = tracks[i].title;
+//        }
         
         trackTitle.classList.add('track-title');
         lyricsBox.appendChild(trackTitle);
@@ -323,7 +331,7 @@ function fillLyricDrawer() {
 }
 fillLyricDrawer();
 
-if (window.innerWidth <= 500) {document.getElementById('lyrics-button').innerHTML = '';}
+//if (window.innerWidth <= 500) {document.getElementById('lyrics-button').innerHTML = '';}
 </script>
 </body>
 </html>
