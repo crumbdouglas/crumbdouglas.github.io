@@ -2,6 +2,7 @@ var loadedaudio = document.getElementById('main-audio');
 
 var current = 0;
 var playing = false;
+var unplayed = true;
 
 //document.getElementById('play-button').addEventListener('click', playPause(), false);
 
@@ -257,10 +258,14 @@ for (var i = 0; i < tracklinks.length; i++) {
 
      (function(index){
         tracklinks[i].onclick = function(){
-        
-            loadedaudio.src = tracks[index].url;
- 
-            loadedaudio.play();//}
+            
+            if (unplayed == true && index == 0) {//first track play without reloading
+            } else {
+                loadedaudio.src = tracks[index].url;
+            }
+            
+            unplayed = false;
+            loadedaudio.play();
 //            playFunc;//timeUpdate;
             
             //add colour highlight for next track
