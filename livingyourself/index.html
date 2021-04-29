@@ -19,7 +19,7 @@ body {margin: 0; background-color: black;}
 
 #buttons-container {background-color: white; display: inline-block; padding: 0; border-right: 5px solid white; height: 30px;}
 #buttons-container .control-buttons {height: 30px; width: 30px; background-size: contain; display: inline-block;  background-color: black; cursor: pointer;}
-#buttons-container .control-buttons:hover {background-color: darkgray;}
+#buttons-container .control-buttons:hover {background-color: dimgray;}
 #prev-button {background-image: url(assets/transpixelbutton-prev.png);}
 #rev-button {background-image: url(assets/transpixelbutton-reverse.png);}
 #play-button {background-image: url(assets/transpixelbutton-play.png);}
@@ -118,7 +118,10 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
 @media screen and (max-width: 500px) {
     #buttons-container {height: calc(100vw / 5); border-right: 0;}
-    #buttons-container .control-buttons {height: calc(20vw - 5px); width: calc(20vw - 5px);}
+    #buttons-container .control-buttons {height: calc(20vw - 5px); width: calc(20vw - 5px); -webkit-tap-highlight-color: transparent;}
+    #buttons-container .control-buttons:hover {background-color: black;}
+    #buttons-container .control-buttons:active {background-color: dimgray;}
+
     #next-button {border-right: 1px solid white;}
     
     #top-player-bar {height: calc(36vw - 10px); }
