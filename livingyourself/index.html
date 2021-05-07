@@ -199,6 +199,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
     0% {background-position:-10%;} 40% {background-position:-10%;} 47.5% {background-position:110%;} 100% {background-position:110%;}}
 
 /* MOBILE */
+#top-player-lyric-blackout {display: none;}
 
 @media screen and (max-width: 500px) {
     #buttons-container {height: calc(100vw / 5); border-right: 0;}
@@ -215,17 +216,17 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
     
     #lyrics-button {position: absolute; bottom: 0px; right: 0px; height: calc(44% - 5px); top: calc(20vw - 5px); padding: 6px 0px 0px 10px; line-height:30px;  font-size: 16px; letter-spacing: 8px; border-radius: 0px 0px 6px 0px; width: 30%; background-image: url(assets/info-blk.png); background-color: white; background-repeat: no-repeat; background-size: 66%; background-position: center;}
     
-    #lyrics-drawer {border-radius: 7px; padding-top: calc(36vw - 10px); font-size: 60%; }
+    #lyrics-drawer {border-radius: 7px;  font-size: 60%; position: fixed; height: calc(100% - 36vw - 10px); top:; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
 
 
-    #lyrics-drawer.closed {max-height: 0px; height: 0px;}
-    #lyrics-drawer.open {max-height: calc(100% - 36vw - 0px); height: 100%; overflow-x: scroll;}
+    #lyrics-drawer.closed { top: calc(36vw - 100% + 36vw + 10px);height: calc(100% - 36vw - 24px);}
+    #lyrics-drawer.open {  overflow-x: scroll; top:calc(36vw - 10px);height: calc(100% - 36vw - 24px); }
     
-    #lyrics-box {column-count: 2; column-gap: 10px; margin: 10px; overflow-x: auto; width: calc(100% - 20px); /*height: calc(100% - 20px);stops weirdness on open*/ height: calc(100vh - 12vh - 36vw - 10px); display: inline-block; padding-bottom: 0px; bottom: -10px; position: absolute;}
+    #lyrics-box {column-count: 2; column-gap: 10px; margin: 10px; overflow-x: auto; width: calc(100% - 20px); /*height: calc(100% - 20px);stops weirdness on open*/ height: calc(100% - 20px); display: inline-block; padding-bottom: 0px; bottom: 0px; position: absolute; }
     
+    .extra-underlays {display: none;}
     
-    
-    
+    #top-player-lyric-blackout {display: block; background-color: black; z-index: 36; width: 100%; height: calc(36vw - 10px); top: 0; position: absolute; left: 0;}
     
 }
 
@@ -243,7 +244,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 </head>
 <body onresize="resizePage()">
 <audio id="main-audio" preload="auto"><source src="assets/LY192/01livin.mp3"></audio>
-<div id="top-player-bar">
+<div id="top-player-bar">   <div id="top-player-lyric-blackout"></div>
     <div id="top-player-inner">
         <div id="buttons-container">
             <div id="prev-button" class="control-buttons" onclick="prevTrack()"></div>
@@ -388,13 +389,13 @@ function lyricDrawerOpenClose() {
     if (lyricDrawer.classList.contains('open')) {
         lyricDrawer.classList.remove('open');
         lyricDrawer.classList.add('closed');
-        document.getElementById('top-player-inner').style.borderRadius = '7px';
-        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px 0px 6px 0px';}
+//        document.getElementById('top-player-inner').style.borderRadius = '7px';
+//        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px 0px 6px 0px';}
     } else {
         lyricDrawer.classList.remove('closed');
         lyricDrawer.classList.add('open');
-        document.getElementById('top-player-inner').style.borderRadius = '7px 7px 0 0';
-        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px';}
+//        document.getElementById('top-player-inner').style.borderRadius = '7px 7px 0 0';
+//        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px';}
     }
 }
 
