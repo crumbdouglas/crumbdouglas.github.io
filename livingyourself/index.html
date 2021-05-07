@@ -102,6 +102,75 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 #moon {fill: aqua;}
 */
 
+.extra-underlays {opacity: 0; z-index: 4;  position: absolute; }
+
+@keyframes wavesAnim {
+    0%, 30%,100% {opacity: 0; top: 12%;} 
+    10%,20% {opacity: 1; top: 12%;}
+    31%, 60%{opacity: 0; top: 9%;} 
+    40%,50%{opacity: 1; top: 9%;} 
+}
+#extra-waves {top: 9%; left: -13%; background-color: aquamarine; height: 3%; width: 20%;  transform: rotate(-6deg); animation: wavesAnim 10s linear infinite 4s; }
+
+
+@keyframes swirlsAnim {
+   
+    0% {top: 93%; left: 89%;}
+    10% {top: 88%; left: 95%; }
+    20% {top: 95%; left: 96%;}
+    30% {top: 100%; left: 81%;}
+    40% {top: 100%; left: 100%;}
+}
+#extra-swirls {top: 100%; left: 81%;  background-color: palevioletred; height: 5%; width: 5%; animation: swirlsAnim 5s step-end infinite, extrasLngAnim 0.5s linear infinite; }
+
+@keyframes extrasAnim {
+    0%, 15%,100% {opacity: 0; } 
+    5%,10% {opacity: 1; }
+}
+@keyframes extrasQckAnim {
+    0%, 30%,100% {opacity: 0; } 
+    10%,20% {opacity: 1; }
+}
+@keyframes extrasLngAnim {
+    0%, 90%,100% {opacity: 0; } 
+    20%,80% {opacity: 1; }
+}
+#extra-moon {top: 9%; left: 98%;  background-color: paleturquoise; height: 8%; width: 7%;  animation: extrasAnim 22s linear infinite 13s; }
+
+#extra-earth {top: 8%; left: 47.5%;  background-color: dodgerblue; height: 6%; width: 6%;  animation: extrasAnim 26s linear infinite 2s; border: 1% solid dodgerblue;}
+#extra-earth-inner {top: 15%; border-radius: 50%; height: 55%; width: 58%; position: absolute; left: 20%; background-color: palegreen; animation: inherit;}
+
+#extra-cross {top: 96%; left: 47%;  background-color: gold; height: 8%; width: 5%;  animation: extrasAnim 17s linear infinite 2s; }
+
+#extra-sun {top: 65%; left: 97%; background-color: gold; height: 10%; width: 9%;  animation: extrasAnim 18s linear infinite 5s; }
+
+#extra-heart {top: 77%; left: 39%; background-color: tomato; height: 6%; width: 6%;  animation: extrasAnim 20s linear infinite 12s; }
+
+#extra-bum {top: 77%; left: 94%; background-color: peachpuff; height: 8%; width: 6%;  animation: extrasAnim 17s linear infinite 16s; }
+
+#extra-bug {top: 22%; left: 76%; background-color: plum; height: 5%; width: 5%;  animation: extrasAnim 19s linear infinite 10s; }
+
+#extra-leaf {top: 26%; left:26%; background-color: palegreen; height: 4%; width: 5%;  animation: extrasAnim 15s linear infinite 3s; }
+
+#extra-flower {top: 42%; left: 88%; background-color: hotpink; height: 6%; width: 6%;  animation: extrasAnim 15s linear infinite 12s; }
+    #extra-flower-inner {top: 35%; left: 25%; width: 40%; height: 40%; border-radius: 50%; background-color: gold;animation: inherit;}
+    
+#extra-eye {top: 16%; left: 95%; background-color: powderblue; height: 32%; width: 40%;  animation: extrasAnim 13s linear infinite 10s; border-radius: 50%;top: 26%; left: 95%;height: 10%; width: 11%;}
+
+#extra-angel {background-color: lemonchiffon; animation: extrasAnim 22s linear infinite 16s; top: 32%; left: -9%;height: 9%; width: 9%;}    
+
+@keyframes heartAnim {
+    0%, 20% {background-color: white;}
+    10% {background-color: tomato; }
+}
+#extra-heart1 {top: 59%; left: -13%; height: 19%; width: 16%;  animation:  heartAnim 10s step-end infinite 3s, extrasLngAnim 1s linear infinite; opacity: 1;border-radius: 10%;}
+    #extra-heart1-inner {top: 16%; left: 14%; width: 67%; height: 70%; border-radius: 50%;  animation: heartAnim 10s step-end infinite 2s;opacity: 1;}
+        #extra-heart1-inner-inner {top: 20%; left: 14%; width: 67%; height: 60%; border-radius: 50%; animation: heartAnim 10s step-end infinite 1s; opacity: 1;}
+        
+#extra-heart2 {top: 88%; left: -5%; height: 17%; width: 16%; animation:  heartAnim 10s step-end infinite 8s, extrasLngAnim 1s linear infinite; opacity: 1; border-radius: 40%;}
+    #extra-heart2-inner {top: 16%; left: 14%; width: 67%; height: 70%; border-radius: 50%; animation:  heartAnim 10s step-end infinite 7s; opacity: 1;  }
+        #extra-heart2-inner-inner {top: 25%; left: 25%; width: 55%; height: 55%; border-radius: 50%;animation:  heartAnim 10s step-end infinite 6s; opacity: 1;}
+
 
 
 /* SVGS */
@@ -121,7 +190,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
 /* CERAMIC MAN */
 
-#ceramic-man {background-image: url(assets/man.png); width: 50%; height: 50%; position: absolute;  background-position: center; background-repeat: no-repeat; top: 25%; left: 25%; cursor: pointer; z-index: 25; overflow: visible; background-size:52%;}
+#ceramic-man {background-image: url(assets/man.png); width: 50%; height: 50%; position: absolute;  background-position: center; background-repeat: no-repeat; top: 25%; left: 25%; cursor: pointer; z-index: 25; overflow: visible; background-size:;}
 
 #ceramic-shimmer {position: absolute; top: 0;   border-radius: 50%; left: 0; background-image: linear-gradient(135deg, rgba(255,255,255,0) 40%,rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 60%); background-size: 300%; background-position:0%; animation-name: shimmeranim; animation-duration: 5s; animation-direction: normal; animation-iteration-count: infinite; animation-timing-function: linear; z-index: 22;}
 
@@ -162,7 +231,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
 @keyframes rainbowAnimBG {
     0%,100% {background-color: tomato;} 30% {background-color: gold;} 60% {background-color: dodgerblue;} 75% {background-color: hotpink;}
-    
+    }
 
 
 /* END MOBILE */
@@ -207,7 +276,7 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
     This is my attempt to express the interplaying joy and sorrow that defines my  experience— in the surest terms that i am able.<br><br>
     
-<div id="album-photo"><img id="livin-album-photo" src="assets/vlcsnap-598.jpg"></div>
+<div id="album-photo"><a href="https://www.youtube.com/watch?v=2_qhqSqSbqk" target="_blank" rel="noreferrer noopener"><img id="livin-album-photo" src="assets/vlcsnap-598.jpg"></a></div>
 
 
         </div>
@@ -271,7 +340,21 @@ height: calc(1000% / 11); top: calc(50% / 11); position: absolute;}
 
 </svg>
 
-
+<div id="extra-waves" class="extra-underlays"></div>
+<div id="extra-moon" class="extra-underlays"></div>
+<div id="extra-earth" class="extra-underlays"><div id="extra-earth-inner" class="extra-underlays"></div></div>
+<div id="extra-swirls" class="extra-underlays"></div>
+<div id="extra-cross" class="extra-underlays"></div>
+<div id="extra-sun" class="extra-underlays"></div>
+<div id="extra-heart" class="extra-underlays"></div>
+<div id="extra-bum" class="extra-underlays"></div>
+<div id="extra-leaf" class="extra-underlays"></div>
+<div id="extra-bug" class="extra-underlays"></div>
+<div id="extra-flower" class="extra-underlays"><div id="extra-flower-inner" class="extra-underlays"></div></div>
+<div id="extra-heart1" class="extra-underlays"><div id="extra-heart1-inner" class="extra-underlays"><div id="extra-heart1-inner-inner" class="extra-underlays"></div></div></div>
+<div id="extra-heart2" class="extra-underlays"><div id="extra-heart2-inner" class="extra-underlays"><div id="extra-heart2-inner-inner" class="extra-underlays"></div></div></div>
+<div id="extra-eye" class="extra-underlays"></div>
+<div id="extra-angel" class="extra-underlays"></div>
             
             </div>
         
