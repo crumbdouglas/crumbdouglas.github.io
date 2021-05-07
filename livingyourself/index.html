@@ -389,13 +389,13 @@ function lyricDrawerOpenClose() {
     if (lyricDrawer.classList.contains('open')) {
         lyricDrawer.classList.remove('open');
         lyricDrawer.classList.add('closed');
-//        document.getElementById('top-player-inner').style.borderRadius = '7px';
-//        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px 0px 6px 0px';}
+        document.getElementById('top-player-inner').style.borderRadius = '7px';
+        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px 0px 6px 0px';}
     } else {
         lyricDrawer.classList.remove('closed');
         lyricDrawer.classList.add('open');
-//        document.getElementById('top-player-inner').style.borderRadius = '7px 7px 0 0';
-//        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px';}
+        document.getElementById('top-player-inner').style.borderRadius = '7px 7px 0 0';
+        if (window.innerWidth <= 500) {document.getElementById('lyrics-button').style.borderRadius = '0px';}
     }
 }
 
