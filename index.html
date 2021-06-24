@@ -1,37 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-<title>crumb Douglas</title>
-<meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="Crumb Douglas">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="utf-8" />
+<!--        <meta http-equiv="x-ua-compatible" content="ie=edge" />-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>crumb Douglas?</title>
+        <link rel="stylesheet" type="text/css" href="externals/fish-lander.css"/>
+        <link rel="shortcut icon" type="image/x-icon" href="assets/ceramic-icon.png" />
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+<!--        <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet"> -->
+        <script type="text/javascript">
 
-<style>
-body {background-color: oldlace;}
-#forward{position: absolute; bottom:10px; margin: auto; text-align: center; width: 20px; height: 20px; left: calc(50vw - 10px);}
+var movingarrow = document.getElementById('moving-arrow');
 
-#ceramic-man-cont {margin: auto; text-align: center;}
-#ceramic-man {height: auto; width: 50vh; }
+const inWinHeight = window.innerHeight; // for ios browser toolbar hide 
+            //okay it wasn't actully this it's to do with the height, the smaller heright skews it
 
-/*#prawn-cont, #chicken-cont {height: 20vh; position: absolute;}*/
-#prawn, #chicken {mix-blend-mode: multiply; height: 30vh; background-repeat: no-repeat; background-position: center; background-size: contain; cursor: pointer; width: 30vw; position: absolute;}
-#prawn:hover, #chicken:hover, #ceramic-man:hover {transform: scale(1.01);}
-#prawn {background-image: url('assets/lewis-shrimp.png'); right: 10vw;}
-#chicken {background-image: url('assets/lewis-chicken.png'); left: 10vw;}
+window.addEventListener('scroll', function() {
+    var scrollVar = window.pageYOffset;
+    var scroll = scrollVar * inWinHeight * 0.0011;// old // scrollVar * 0.9; //0.9 to adjust yellow bar?
+//    scroll = scroll * inWinHeight * 0.0012;
+    var winHeight = inWinHeight; // for ios browser toolbar hide
+    
+//    document.getElementById('test-scroll').innerHTML = Math.round(scroll);
+//    document.getElementById('test-window').innerHTML = window.innerHeight + 'i ' + '(' + inWinHeight + 'a / ' + winHeight + 'b) x ' + window.innerWidth;
 
-</style>
-</head>
-<body>
+  
+    //wrap so opacity doesn't keep changing in background
+//    if ((750-scrollVar )/200 >= -2) {
+        document.getElementById('uncover2').style.opacity = (200-scrollVar )/200;
+        document.getElementById('uncover3').style.opacity = (300-scrollVar )/200;
+        document.getElementById('uncover4').style.opacity = (450-scrollVar )/200;
+        document.getElementById('uncover5').style.opacity = (550-scrollVar )/200;
+        document.getElementById('uncover6').style.opacity = (650-scrollVar )/200;
+        document.getElementById('uncover7').style.opacity = (750-scrollVar )/200;
 
-<div id="ceramic-man-cont"><a href="livingyourself/"><img id="ceramic-man" src="livingyourself/assets/man.png"></a></div>
-<div id="forward"  style="transform: rotate(270deg);"><a href="https://ed-dickinson.github.io/" style="text-decoration: none;">:)</a></div>
+        document.getElementById('cover1').style.opacity = (scrollVar-50 )/200;
+        document.getElementById('cover2').style.opacity = (scrollVar-150 )/200;
+        document.getElementById('cover3').style.opacity = (scrollVar-250 )/200;
+        document.getElementById('cover4').style.opacity = (scrollVar-350 )/200;
+        document.getElementById('cover5').style.opacity = (scrollVar-450 )/200;
+        document.getElementById('cover6').style.opacity = (scrollVar-550 )/200;
+//    }
+    document.getElementById('phrase1').style.opacity = Math.round((scrollVar-600 )/200);
+    document.getElementById('phrase2').style.opacity = Math.round((scrollVar-930 )/200);
+    document.getElementById('phrase4').style.opacity = Math.round((scrollVar-1000 )/200);
+    document.getElementById('phrase5').style.opacity = Math.round((scrollVar-1000 )/200);
+    document.getElementById('phrase3').style.opacity = Math.round((scrollVar-1050 )/200);
 
-<div id="chicken-cont"><a href="chickenkeyev.html"><div id="chicken" ></div></a></div>
+   
+        // initial scrollbar
+    if (scroll <= (winHeight * 0.7)) {
+        document.getElementById('moving-block').style.top = scroll + 'px';
+        document.getElementById('moving-block').style.left = '0px';
+        document.getElementById('moving-block').style.width = '10px';
+        
+        //expands
+    } else if (scroll > (winHeight * 0.7) && scroll <= (winHeight * 0.7) + 100) {
+        document.getElementById('moving-block').style.width = (scroll - (winHeight * 0.7)) + 10 + 'px';
+        document.getElementById('moving-block').style.top = winHeight * 0.7 + 'px';
+        document.getElementById('moving-block').style.left = '0px';
+        document.getElementById('moving-block-inside2').style.bottom = '-50px';
 
-<div id="prawn-cont"><a href="prawntempora.html"><div id="prawn" ></div></a></div>
+        
+        //slides
+    } else if ((scroll > (winHeight * 0.7) + 100)  && (scroll <= (winHeight * 0.7) + 100 + (window.innerWidth * 0.05))) {
+        document.getElementById('moving-block').style.left = scroll - ((winHeight * 0.7) + 100) + 'px';
+        document.getElementById('moving-block').style.width = 100 + 10 + 'px';
+        document.getElementById('moving-block-inside2').style.bottom = '-50px';
+        
+        //word pops up
+    } else if ((scroll > (winHeight * 0.7) + 100 + (window.innerWidth * 0.05)) && (scroll <= (winHeight * 0.7) + 100 + 55 + (window.innerWidth * 0.05))){
+        document.getElementById('moving-block-inside2').style.bottom = (scroll - (winHeight * 0.7) - 100 - 55 - (window.innerWidth * 0.05))*0.5 + 'px';
+        document.getElementById('moving-block').style.top = winHeight * 0.7 + 'px';
+        document.getElementById('moving-block').style.left = window.innerWidth * 0.05 +'px';
+        document.getElementById('moving-block').style.width = 100 + 10 + 'px';
+        
+    } else {
+        document.getElementById('moving-block-inside2').style.bottom = '5px';
+        document.getElementById('moving-block').style.top = winHeight * 0.7 + 'px';
+        document.getElementById('moving-block').style.left = window.innerWidth * 0.05 +'px';
+        document.getElementById('moving-block').style.width = 100 + 10 + 'px';
+    }
+    
+    if (window.innerWidth > 600) {
+        var wholePage = document.documentElement.scrollHeight;
+        var windowSize = document.documentElement.clientHeight;
+        var customScrollbar = document.getElementById('custom-scrollbar');
+        var factor = 1;//
+        
+        //custom right scrollbar
+        var scrollBarDist = (windowSize - customScrollbar.clientHeight - (scrollVar / (wholePage - windowSize)) * (windowSize - customScrollbar.clientHeight)) * factor;
+        customScrollbar.style.bottom = scrollBarDist + 'px'; 
+        var scrollBarOpacity = (scrollVar - (windowSize * 0.5)) /500;
+        console.log(scrollBarOpacity);
+        customScrollbar.style.opacity = scrollBarOpacity;
+    }
+
+     
+});
 
 
-</body>
+    
+
+</script>
+    </head>
+    <body>
+    
+    <div id="moving-block"><div id="moving-block-inside"><div id="moving-block-inside2">howdy!</div></div></div>
+    <div id="custom-scrollbar"></div>
+<!--    <div id="test" style="position:fixed;">window: <span id="test-window">test</span> / scroll: <span id="test-scroll">test</span></div>-->
+<div id="johnnyfish"><img src="assets/john-fish.png" style="height:100%;width:auto;">
+	
+	<div id="uncover2" class="animuncover"></div>
+	<div id="uncover3" class="animuncover"></div>
+	<div id="uncover4" class="animuncover"></div>
+	<div id="uncover5" class="animuncover"></div>
+	<div id="uncover6" class="animuncover"></div>
+	<div id="uncover7" class="animuncover"></div>
+	<div id="cover1" class="animcover"></div>
+	<div id="cover2" class="animcover"></div>
+	<div id="cover3" class="animcover"></div>
+	<div id="cover4" class="animcover"></div>
+	<div id="cover5" class="animcover"></div>
+	<div id="cover6" class="animcover"></div>
+	<div id="cover7" class="animcover"></div>
+    <div id="phrase-container">
+        <div id="phrase1" class="phrasetext">howdy!</div>
+        <div id="phrase2" class="phrasetext">this is a website for</div>
+        <div id="phrase4" class="phrasetext">CRUMB DOUGLAS</div>
+        <div id="phrase5" class="phrasetext">CRUMB DOUGLAS</div>
+        <div id="phrase3" class="phrasetext"></div>
+    </div>
+
+	
+</div>
+        
+        <div id="scroller">
+<!--
+            <div class="up-arrow">^</div>
+            <div class="up-arrow">^</div>
+            <div class="up-arrow">^</div>
+-->
+
+            <div id="mobile-only-spacer"></div>
+            <div class="item">
+                <a href="livingyourself/index.html"><img src="assets/ceramic-man-1000.png" class="album-art" ></a>
+                <i><h3>living Yourself:</h3><h5>an album i recorded in 2020. acoustic songs decorated with electricity.</h5></i>
+            </div>
+                
+            <div class="item lewis-tools">
+                <a href="prawntempora.html"><img src="assets/lewis-shrimp.png" class="" ></a>
+                <a href="chickenkeyev.html"><img src="assets/lewis-chicken.png" class="" ></a>
+                <h3 style="font-size: 1.3em;">Prawn Tempo-ra & Chicken Key-ev:</h3><h5>a pair of musical tools for tempo timing and key/chord transposing, respectively.</h5>
+            </div>
+            
+            <div class="item">
+                <a href="https://crumbdouglas.bandcamp.com/album/crumbs-of-heaven"><img src="assets/crumbs-of-heaven-cover.jpg" class="album-art"></a>
+                <i><h3>Crumbs of Heaven:</h3><h5>a countryside album. a rough and janky interpretation of pop.</h5></i>
+            </div>
+        </div>
+        </body>
+
+
 </html>

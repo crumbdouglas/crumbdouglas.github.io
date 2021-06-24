@@ -250,7 +250,16 @@ function TapForBPMx(e)
   
   
   
-  function ReleaseButton() {document.getElementById("shrimpbutton").style.backgroundSize = "100%";}
+  function ReleaseButton() {
+    if (window.innerWidth <= 500) {
+        document.getElementById("shrimpbutton").style.backgroundSize = "95%";
+        setTimeout(function(){
+            document.getElementById("shrimpbutton").style.backgroundSize = "100%";
+        }, 100)
+    } else {
+        document.getElementById("shrimpbutton").style.backgroundSize = "100%";
+    }
+  }
   
 document.onkeypress = TapForBPM;
 document.onkeyup = ReleaseButton;
